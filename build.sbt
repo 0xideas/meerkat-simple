@@ -17,7 +17,10 @@ lazy val root = (project in file("."))
       "io.circe"        %% "circe-generic"       % CirceVersion,
       "org.specs2"      %% "specs2-core"         % Specs2Version % "test",
       "ch.qos.logback"  %  "logback-classic"     % LogbackVersion,
-       "com.github.leontl" % "epsilonensemble_2.12" % "0.1"
+      /*"com.github.leontl" % "epsilonensemble_2.12" % "0.1"*/
+      "org.scalanlp" %% "breeze" % "1.1",
+      "org.scalanlp" %% "breeze-natives" % "1.1",
+      "org.scalanlp" %% "breeze-viz" % "1.1"
     ),
     addCompilerPlugin("org.typelevel" %% "kind-projector"     % "0.10.3"),
     addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.0")
