@@ -32,3 +32,6 @@ scalacOptions ++= Seq(
   "-Ypartial-unification",
   "-Xfatal-warnings",
 )
+
+
+enablePlugins(JavaAppPackaging)
