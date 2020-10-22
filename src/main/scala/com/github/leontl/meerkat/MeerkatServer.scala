@@ -28,7 +28,7 @@ object MeerkatServer {
       finalHttpApp = Logger.httpApp(true, true)(httpApp)
 
       exitCode <- BlazeServerBuilder[F](global)
-        .bindHttp(8080, "0.0.0.0")
+        .bindHttp(sys.env.getOrElse("PORT", "8080").toInt, "0.0.0.0")
         .withHttpApp(finalHttpApp)
         .serve
     } yield exitCode

@@ -26,11 +26,6 @@ object MeerkatAction {
   implicit def apply[F[_]](implicit ev: MeerkatAction[F]): MeerkatAction[F] = ev
 
   final case class Name(name: String) extends AnyVal
-  /**
-    * More generally you will want to decouple your edge representations from
-    * your internal data structures, however this shows how you can
-    * create encoders for your data.
-    **/
 
   def impl[F[_]: Applicative]: MeerkatAction[F] = new MeerkatAction[F]{
     def hello(n: MeerkatAction.Name): F[Greeting] =
