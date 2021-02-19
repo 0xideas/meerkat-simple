@@ -24,13 +24,13 @@ object MeerkatRoutes {
     HttpRoutes.of[F] {
       case GET -> Root / "action" =>
         for {
-          greeting <- H.hello(MeerkatAction.Name(ensemble.act(())))
-          resp <- Ok(greeting)
+          action <- H.hello(MeerkatAction.Name(ensemble.act(())))
+          resp <- Ok(action)
         } yield resp
 
       case req @ POST -> Root / "update" => 
         req.decode[Update]{ update =>
-          ensemble.update(update.modelId, update.reward)
+          ensemble.update(List(update.modelId), (), update.reward)
           Ok(s"model ${update.modelId} updated with ${update.reward}!")
         }
 
