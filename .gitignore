@@ -3,6 +3,7 @@
 !*/
 
 !*.scala
+!*.xml
 
 !build.sbt
 !.gitignore

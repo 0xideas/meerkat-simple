@@ -10,3 +10,5 @@ wait
 duration=$(( SECONDS - start ))
 
 echo $duration
+
+#curl -X POST http://localhost:8080/update --data '{"modelId":"0", "reward":"1.0"}'
