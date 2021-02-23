@@ -10,6 +10,7 @@ import io.circe.generic.semiauto._
 import org.http4s._
 import org.http4s.circe._
 import io.circe.generic.auto._
+import ada.`package`.Reward
 
 
 object MeerkatRoutes {
@@ -30,7 +31,7 @@ object MeerkatRoutes {
 
       case req @ POST -> Root / "update" => 
         req.decode[Update]{ update =>
-          ensemble.update(List(update.modelId), (), update.reward)
+          ensemble.update(List(update.modelId), (), new Reward(update.reward))
           Ok(s"model ${update.modelId} updated with ${update.reward}!")
         }
 
